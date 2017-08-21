@@ -286,13 +286,12 @@
     
     
     return cell;
-}
+}cfdr 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        if (indexPath.row == 3) {
-            
+        if (indexPath.row == 3) {vgvgvg
             [self uiConfig];
             
             [self.view addSubview:bgView];
