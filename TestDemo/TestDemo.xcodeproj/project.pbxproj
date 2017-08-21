@@ -22,6 +22,7 @@
 		5B2210CF1F4AD0C900E0F227 /* DefaultAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210C51F4AD0C900E0F227 /* DefaultAddressCell.m */; };
 		5B2210D01F4AD0C900E0F227 /* ProvinceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210C71F4AD0C900E0F227 /* ProvinceModel.m */; };
 		5B2210D11F4AD0C900E0F227 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210C91F4AD0C900E0F227 /* ViewController.m */; };
+		5B2210D51F4AE0DA00E0F227 /* MIneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210D41F4AE0DA00E0F227 /* MIneViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		5B2210C71F4AD0C900E0F227 /* ProvinceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceModel.m; sourceTree = "<group>"; };
 		5B2210C81F4AD0C900E0F227 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5B2210C91F4AD0C900E0F227 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5B2210D31F4AE0DA00E0F227 /* MIneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIneViewController.h; path = ../../../../MIneViewController.h; sourceTree = "<group>"; };
+		5B2210D41F4AE0DA00E0F227 /* MIneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIneViewController.m; path = ../../../../MIneViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,8 @@
 		5B2210D21F4AD37A00E0F227 /* wode  */ = {
 			isa = PBXGroup;
 			children = (
+				5B2210D31F4AE0DA00E0F227 /* MIneViewController.h */,
+				5B2210D41F4AE0DA00E0F227 /* MIneViewController.m */,
 			);
 			path = "wode ";
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 				5B2210741F4A76BF00E0F227 /* AppDelegate.m in Sources */,
 				5B2210711F4A76BF00E0F227 /* main.m in Sources */,
 				5B2210D01F4AD0C900E0F227 /* ProvinceModel.m in Sources */,
+				5B2210D51F4AE0DA00E0F227 /* MIneViewController.m in Sources */,
 				5B2210CF1F4AD0C900E0F227 /* DefaultAddressCell.m in Sources */,
 				5B2210CE1F4AD0C900E0F227 /* CityModel.m in Sources */,
 			);
