@@ -271,7 +271,7 @@
             }
             
             
-            return cell;
+            return nil;
 //        }
     }
     
