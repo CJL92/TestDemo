@@ -292,7 +292,6 @@
 {
     if (indexPath.section == 0) {
         if (indexPath.row == 3) {
-            
             [self uiConfig];
             
             [self.view addSubview:bgView];
