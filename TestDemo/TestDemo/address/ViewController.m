@@ -37,6 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    areaString = @"";
     
     [self loading];
 
@@ -95,7 +96,7 @@
     [bgView addSubview:_pickerView];
     
     _pickerDateToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0,  [UIScreen mainScreen].bounds.size.height - 216  - 44,  [UIScreen mainScreen].bounds.size.width, 44)];
-    _pickerDateToolbar.barStyle = UIBarStyleBlackOpaque;
+    _pickerDateToolbar.barStyle = UIBarStyleDefault;
     _pickerDateToolbar.backgroundColor = [UIColor whiteColor];
     [_pickerDateToolbar sizeToFit];
     [bgView addSubview:_pickerDateToolbar];
@@ -196,8 +197,11 @@
     NSArray *arr = _areaDic[str];
     AreaModel *areaModel = [[AreaModel alloc]init];
     [areaModel setValuesForKeysWithDictionary:arr[selectThree]];
-    areaString = [NSString stringWithFormat:@"省:%@  市:%@  区:%@",model.name,cityModel.name,areaModel.name];
+    areaString = [NSString stringWithFormat:@"%@  %@  %@",model.name,cityModel.name,areaModel.name];
 //    NSLog(@"省:%@ 市:%@ 区:%@",model.name,cityModel.name,areaModel.name);
+    
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark -- tableView
@@ -264,13 +268,15 @@
                 cell.textField.placeholder = @"身份证（可选填，购买报税商品必填）";
             }else if (indexPath.row == 3){
                 cell.textField.placeholder = @"省 市  区";
+                cell.textField.text = areaString;
+                cell.textField.enabled = NO;
             }else if (indexPath.row == 4){
                 cell.textField.placeholder = @"乡/镇/街道";
             }else if (indexPath.row == 5){
                 cell.textField.placeholder = @"详细地址（无需重复填写省市区）";
             }
             
-            
+        
             return cell;
 //        }
     }

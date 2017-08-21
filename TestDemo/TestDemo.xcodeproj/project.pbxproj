@@ -9,19 +9,19 @@
 /* Begin PBXBuildFile section */
 		5B2210711F4A76BF00E0F227 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210701F4A76BF00E0F227 /* main.m */; };
 		5B2210741F4A76BF00E0F227 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210731F4A76BF00E0F227 /* AppDelegate.m */; };
-		5B2210771F4A76BF00E0F227 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210761F4A76BF00E0F227 /* ViewController.m */; };
 		5B22107A1F4A76BF00E0F227 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B2210781F4A76BF00E0F227 /* Main.storyboard */; };
 		5B22107C1F4A76BF00E0F227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B22107B1F4A76BF00E0F227 /* Assets.xcassets */; };
 		5B22107F1F4A76BF00E0F227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B22107D1F4A76BF00E0F227 /* LaunchScreen.storyboard */; };
 		5B22108A1F4A76C000E0F227 /* TestDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210891F4A76C000E0F227 /* TestDemoTests.m */; };
 		5B2210951F4A76C000E0F227 /* TestDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210941F4A76C000E0F227 /* TestDemoUITests.m */; };
-		5B2210AB1F4A92B000E0F227 /* AreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210A61F4A92B000E0F227 /* AreaModel.m */; };
-		5B2210AC1F4A92B000E0F227 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210A81F4A92B000E0F227 /* CityModel.m */; };
-		5B2210AD1F4A92B000E0F227 /* ProvinceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210AA1F4A92B000E0F227 /* ProvinceModel.m */; };
-		5B2210B01F4A92B900E0F227 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B2210AE1F4A92B900E0F227 /* area.plist */; };
-		5B2210B11F4A92B900E0F227 /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B2210AF1F4A92B900E0F227 /* city.plist */; };
-		5B2210B91F4AC8A600E0F227 /* AddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210B61F4AC8A600E0F227 /* AddressTableViewCell.m */; };
-		5B2210BA1F4AC8A600E0F227 /* DefaultAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210B81F4AC8A600E0F227 /* DefaultAddressCell.m */; };
+		5B2210CA1F4AD0C900E0F227 /* AddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210BD1F4AD0C900E0F227 /* AddressTableViewCell.m */; };
+		5B2210CB1F4AD0C900E0F227 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B2210BE1F4AD0C900E0F227 /* area.plist */; };
+		5B2210CC1F4AD0C900E0F227 /* AreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210C01F4AD0C900E0F227 /* AreaModel.m */; };
+		5B2210CD1F4AD0C900E0F227 /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B2210C11F4AD0C900E0F227 /* city.plist */; };
+		5B2210CE1F4AD0C900E0F227 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210C31F4AD0C900E0F227 /* CityModel.m */; };
+		5B2210CF1F4AD0C900E0F227 /* DefaultAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210C51F4AD0C900E0F227 /* DefaultAddressCell.m */; };
+		5B2210D01F4AD0C900E0F227 /* ProvinceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210C71F4AD0C900E0F227 /* ProvinceModel.m */; };
+		5B2210D11F4AD0C900E0F227 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2210C91F4AD0C900E0F227 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +46,6 @@
 		5B2210701F4A76BF00E0F227 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5B2210721F4A76BF00E0F227 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5B2210731F4A76BF00E0F227 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5B2210751F4A76BF00E0F227 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5B2210761F4A76BF00E0F227 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5B2210791F4A76BF00E0F227 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B22107B1F4A76BF00E0F227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B22107E1F4A76BF00E0F227 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,18 +56,20 @@
 		5B2210901F4A76C000E0F227 /* TestDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B2210941F4A76C000E0F227 /* TestDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDemoUITests.m; sourceTree = "<group>"; };
 		5B2210961F4A76C000E0F227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B2210A51F4A92B000E0F227 /* AreaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaModel.h; sourceTree = "<group>"; };
-		5B2210A61F4A92B000E0F227 /* AreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaModel.m; sourceTree = "<group>"; };
-		5B2210A71F4A92B000E0F227 /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
-		5B2210A81F4A92B000E0F227 /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
-		5B2210A91F4A92B000E0F227 /* ProvinceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceModel.h; sourceTree = "<group>"; };
-		5B2210AA1F4A92B000E0F227 /* ProvinceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceModel.m; sourceTree = "<group>"; };
-		5B2210AE1F4A92B900E0F227 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
-		5B2210AF1F4A92B900E0F227 /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
-		5B2210B51F4AC8A600E0F227 /* AddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableViewCell.h; sourceTree = "<group>"; };
-		5B2210B61F4AC8A600E0F227 /* AddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableViewCell.m; sourceTree = "<group>"; };
-		5B2210B71F4AC8A600E0F227 /* DefaultAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultAddressCell.h; sourceTree = "<group>"; };
-		5B2210B81F4AC8A600E0F227 /* DefaultAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultAddressCell.m; sourceTree = "<group>"; };
+		5B2210BC1F4AD0C900E0F227 /* AddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableViewCell.h; sourceTree = "<group>"; };
+		5B2210BD1F4AD0C900E0F227 /* AddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableViewCell.m; sourceTree = "<group>"; };
+		5B2210BE1F4AD0C900E0F227 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
+		5B2210BF1F4AD0C900E0F227 /* AreaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaModel.h; sourceTree = "<group>"; };
+		5B2210C01F4AD0C900E0F227 /* AreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaModel.m; sourceTree = "<group>"; };
+		5B2210C11F4AD0C900E0F227 /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
+		5B2210C21F4AD0C900E0F227 /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
+		5B2210C31F4AD0C900E0F227 /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		5B2210C41F4AD0C900E0F227 /* DefaultAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultAddressCell.h; sourceTree = "<group>"; };
+		5B2210C51F4AD0C900E0F227 /* DefaultAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultAddressCell.m; sourceTree = "<group>"; };
+		5B2210C61F4AD0C900E0F227 /* ProvinceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceModel.h; sourceTree = "<group>"; };
+		5B2210C71F4AD0C900E0F227 /* ProvinceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceModel.m; sourceTree = "<group>"; };
+		5B2210C81F4AD0C900E0F227 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		5B2210C91F4AD0C900E0F227 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,22 +120,9 @@
 		5B22106E1F4A76BF00E0F227 /* TestDemo */ = {
 			isa = PBXGroup;
 			children = (
-				5B2210AE1F4A92B900E0F227 /* area.plist */,
-				5B2210AF1F4A92B900E0F227 /* city.plist */,
+				5B2210BB1F4ACE9E00E0F227 /* address */,
 				5B2210721F4A76BF00E0F227 /* AppDelegate.h */,
 				5B2210731F4A76BF00E0F227 /* AppDelegate.m */,
-				5B2210751F4A76BF00E0F227 /* ViewController.h */,
-				5B2210761F4A76BF00E0F227 /* ViewController.m */,
-				5B2210B51F4AC8A600E0F227 /* AddressTableViewCell.h */,
-				5B2210B61F4AC8A600E0F227 /* AddressTableViewCell.m */,
-				5B2210B71F4AC8A600E0F227 /* DefaultAddressCell.h */,
-				5B2210B81F4AC8A600E0F227 /* DefaultAddressCell.m */,
-				5B2210A51F4A92B000E0F227 /* AreaModel.h */,
-				5B2210A61F4A92B000E0F227 /* AreaModel.m */,
-				5B2210A71F4A92B000E0F227 /* CityModel.h */,
-				5B2210A81F4A92B000E0F227 /* CityModel.m */,
-				5B2210A91F4A92B000E0F227 /* ProvinceModel.h */,
-				5B2210AA1F4A92B000E0F227 /* ProvinceModel.m */,
 				5B2210781F4A76BF00E0F227 /* Main.storyboard */,
 				5B22107B1F4A76BF00E0F227 /* Assets.xcassets */,
 				5B22107D1F4A76BF00E0F227 /* LaunchScreen.storyboard */,
@@ -169,6 +156,27 @@
 				5B2210961F4A76C000E0F227 /* Info.plist */,
 			);
 			path = TestDemoUITests;
+			sourceTree = "<group>";
+		};
+		5B2210BB1F4ACE9E00E0F227 /* address */ = {
+			isa = PBXGroup;
+			children = (
+				5B2210BC1F4AD0C900E0F227 /* AddressTableViewCell.h */,
+				5B2210BD1F4AD0C900E0F227 /* AddressTableViewCell.m */,
+				5B2210BE1F4AD0C900E0F227 /* area.plist */,
+				5B2210BF1F4AD0C900E0F227 /* AreaModel.h */,
+				5B2210C01F4AD0C900E0F227 /* AreaModel.m */,
+				5B2210C11F4AD0C900E0F227 /* city.plist */,
+				5B2210C21F4AD0C900E0F227 /* CityModel.h */,
+				5B2210C31F4AD0C900E0F227 /* CityModel.m */,
+				5B2210C41F4AD0C900E0F227 /* DefaultAddressCell.h */,
+				5B2210C51F4AD0C900E0F227 /* DefaultAddressCell.m */,
+				5B2210C61F4AD0C900E0F227 /* ProvinceModel.h */,
+				5B2210C71F4AD0C900E0F227 /* ProvinceModel.m */,
+				5B2210C81F4AD0C900E0F227 /* ViewController.h */,
+				5B2210C91F4AD0C900E0F227 /* ViewController.m */,
+			);
+			path = address;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,8 +286,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B22107F1F4A76BF00E0F227 /* LaunchScreen.storyboard in Resources */,
-				5B2210B01F4A92B900E0F227 /* area.plist in Resources */,
-				5B2210B11F4A92B900E0F227 /* city.plist in Resources */,
+				5B2210CB1F4AD0C900E0F227 /* area.plist in Resources */,
+				5B2210CD1F4AD0C900E0F227 /* city.plist in Resources */,
 				5B22107C1F4A76BF00E0F227 /* Assets.xcassets in Resources */,
 				5B22107A1F4A76BF00E0F227 /* Main.storyboard in Resources */,
 			);
@@ -306,14 +314,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B2210AB1F4A92B000E0F227 /* AreaModel.m in Sources */,
-				5B2210771F4A76BF00E0F227 /* ViewController.m in Sources */,
-				5B2210BA1F4AC8A600E0F227 /* DefaultAddressCell.m in Sources */,
+				5B2210CC1F4AD0C900E0F227 /* AreaModel.m in Sources */,
+				5B2210CA1F4AD0C900E0F227 /* AddressTableViewCell.m in Sources */,
+				5B2210D11F4AD0C900E0F227 /* ViewController.m in Sources */,
 				5B2210741F4A76BF00E0F227 /* AppDelegate.m in Sources */,
-				5B2210AD1F4A92B000E0F227 /* ProvinceModel.m in Sources */,
-				5B2210AC1F4A92B000E0F227 /* CityModel.m in Sources */,
-				5B2210B91F4AC8A600E0F227 /* AddressTableViewCell.m in Sources */,
 				5B2210711F4A76BF00E0F227 /* main.m in Sources */,
+				5B2210D01F4AD0C900E0F227 /* ProvinceModel.m in Sources */,
+				5B2210CF1F4AD0C900E0F227 /* DefaultAddressCell.m in Sources */,
+				5B2210CE1F4AD0C900E0F227 /* CityModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
