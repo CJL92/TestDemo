@@ -85,8 +85,7 @@
 - (void)uiConfig
 {
     bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    
-    
+
     //picker view 有默认高度216
     _pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height - 216, [UIScreen mainScreen].bounds.size.width, 216)];
     _pickerView.backgroundColor = [UIColor whiteColor];
@@ -122,6 +121,7 @@
 - (void) toolBarDoneClick{
     
     NSLog(@"完成 ~~~ %@" ,areaString);
+    
     [bgView removeFromSuperview];
 
     
@@ -131,24 +131,27 @@
     return 3;
 }
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    if (0 == component)
-    {
+    if (0 == component){
+        
         return _provinceArr.count;
-    }
-    else if(1==component)
-    {
+        
+    }else if(1==component){
+        
         NSInteger rowProvince = [pickerView selectedRowInComponent:0];
         ProvinceModel *model =   _provinceArr[rowProvince];
         return model.citiesArr.count;
-    }
-    else
-    {   NSInteger rowProvince = [pickerView selectedRowInComponent:0];
+        
+    }else{
+        
+        NSInteger rowProvince = [pickerView selectedRowInComponent:0];
         NSInteger rowCity = [pickerView selectedRowInComponent:1];
         ProvinceModel *model = _provinceArr[rowProvince];
         CityModel *cityModel = model.citiesArr[rowCity];
         NSString *str = [cityModel.code description];
         NSArray *arr =  _areaDic[str];
+        
         return arr.count;
+    
     }
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
