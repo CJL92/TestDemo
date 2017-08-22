@@ -18,15 +18,15 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
 /**
  *空间的背景图片BgImage
  */
-@property(strong,nonatomic)UIImageView* BgImage;
+@property(weak,nonatomic)UIImageView* BgImage;
 /**
  *空间的背景图片bgView
  */
-@property(nonatomic,strong)UIView* bgView;
+@property(nonatomic,weak)UIView* bgView;
 /**
  *中间导航栏的标题
  */
-@property(strong,nonatomic)UILabel* titleLabel;
+@property(weak,nonatomic)UILabel* titleLabel;
 
 /**
  * 右边设置的按钮
@@ -45,7 +45,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     self.aTableView = nil;
     self.view = nil;
     
-    self.navigationController.navigationBar.hidden = NO;
+//    self.navigationController.navigationBar.hidden = NO;
 
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"导航条背景"] forBarMetrics:UIBarMetricsDefault];
@@ -58,7 +58,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     //
     self.automaticallyAdjustsScrollViewInsets=NO;
     
-    self.navigationController.navigationBar.hidden = YES;
+//    self.navigationController.navigationBar.hidden = YES;
     
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
     
@@ -66,10 +66,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     [self createTableView];
     [self createBgImageView];
     
-    
-    
     //    [self viewDidLayoutSubviews];
-    
     
 }
 
@@ -116,6 +113,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     
     
     [self createTitleLabel];
+    [self createLeftBtn];
     
 }
 #pragma mark -- 标题
@@ -135,7 +133,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
 -(void)createLeftBtn
 {
     UIButton* leftBtn=[[UIButton alloc]initWithFrame:CGRectMake(0,0,40,40)];
-    
+    leftBtn.backgroundColor = [UIColor redColor];
     [leftBtn setBackgroundImage:[UIImage imageNamed:@"设置"] forState:UIControlStateNormal];
     //
     //    [leftBtn addTarget:self action:@selector(leftBtnAction) forControlEvents:UIControlEventTouchUpInside];
@@ -262,11 +260,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     }
     
     CGFloat alpha = (yOffset + imageBGHeight)/imageBGHeight;
-    if (alpha == 0) {
-        self.navigationController.navigationBar.hidden = YES;
-    }else{
-        self.navigationController.navigationBar.hidden = NO;
-    }
+    
     [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[[UIColor redColor] colorWithAlphaComponent:alpha]] forBarMetrics:UIBarMetricsDefault];
     //self.titleLabel.alpha=alpha;
     alpha=fabs(alpha);
