@@ -62,7 +62,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     
     [self createTableView];
     [self createBgImageView];
-    [self.view addSubview:self.aTableView];
+    
     
     
     //    [self viewDidLayoutSubviews];
@@ -74,14 +74,17 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
 {
     //    if (!_tableView) {
     //        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) style:UITableViewStylePlain];
-    UITableView* tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 20) style:UITableViewStyleGrouped];
+    UITableView* tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 20) style:UITableViewStylePlain];
     self.aTableView=tableView;
+    
     
     self.aTableView.dataSource = self;
     self.aTableView.delegate = self;
     self.aTableView.tableFooterView = [[UIView alloc] init];
     self.aTableView.contentInset=UIEdgeInsetsMake(imageBGHeight, 0, 0, 0);
     self.aTableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    
+    [self.view addSubview:self.aTableView];
     
     [self createBgImageView];
     //    }
@@ -164,7 +167,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    cell.textLabel.text = @"打的电话";
+    cell.textLabel.text = @"打的报销报销开放开发方法";
     
     return cell;
 }
