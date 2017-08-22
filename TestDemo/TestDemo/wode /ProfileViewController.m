@@ -95,7 +95,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     /**
      *创建用户空间背景图片
      */
-    UIImageView* BgImage=[[UIImageView alloc]initWithFrame:CGRectMake(0, -imageBGHeight, self.view.bounds.size.width, imageBGHeight)];
+    UIImageView *BgImage=[[UIImageView alloc]initWithFrame:CGRectMake(0, -imageBGHeight, self.view.bounds.size.width, imageBGHeight)];
     BgImage.image=[UIImage imageNamed:@"屏幕快照"];
     BgImage.userInteractionEnabled = YES;
     self.BgImage=BgImage;
@@ -128,7 +128,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
 #pragma mark -- 设置按钮
 -(void)createLeftBtn
 {
-    UIButton* leftBtn=[[UIButton alloc]initWithFrame:CGRectMake(0,0,40,40)];
+    UIButton *leftBtn=[[UIButton alloc]initWithFrame:CGRectMake(0,0,40,40)];
     leftBtn.backgroundColor = [UIColor redColor];
     [leftBtn setBackgroundImage:[UIImage imageNamed:@"设置"] forState:UIControlStateNormal];
     //    [leftBtn addTarget:self action:@selector(leftBtnAction) forControlEvents:UIControlEventTouchUpInside];
@@ -169,8 +169,8 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    
     cell.textLabel.text = [NSString stringWithFormat:@"test~~~~~%ld",indexPath.section + indexPath.row];
+    
     return cell;
 }
 
@@ -189,8 +189,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}]];
     
     [self presentViewController:alert animated:YES completion:nil];
-
-
+    
 }
 
 #pragma mark - 清除缓存
@@ -251,6 +250,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
         rect.origin.x = xOffset;
         rect.size.width = self.view.bounds.size.width + fabs(xOffset)*2;
         self.BgImage.frame = rect;
+        
     }
     
     CGFloat alpha = (yOffset + imageBGHeight)/imageBGHeight;
@@ -284,7 +284,11 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     return theImage;
 }
 
-
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    [self.view endEditing:YES];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

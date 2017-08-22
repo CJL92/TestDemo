@@ -285,6 +285,7 @@
 				TargetAttributes = {
 					5B22106B1F4A76BF00E0F227 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = P2H64DHXN2;
 						ProvisioningStyle = Automatic;
 					};
 					5B2210841F4A76C000E0F227 = {
@@ -514,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P2H64DHXN2;
 				INFOPLIST_FILE = TestDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
@@ -526,6 +528,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P2H64DHXN2;
 				INFOPLIST_FILE = TestDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
