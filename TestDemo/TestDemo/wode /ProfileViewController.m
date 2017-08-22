@@ -45,6 +45,9 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     self.aTableView = nil;
     self.view = nil;
     
+    self.navigationController.navigationBar.hidden = NO;
+
+    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"导航条背景"] forBarMetrics:UIBarMetricsDefault];
     
 }
@@ -55,7 +58,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     //
     self.automaticallyAdjustsScrollViewInsets=NO;
     
-    self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.navigationBar.hidden = YES;
     
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
     
@@ -88,15 +91,12 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     
     [self createBgImageView];
     //    }
-    //
     //    return _tableView;
-    
 }
 
 #pragma mark -- header的大背景
 -(void)createBgImageView
 {
-    
     /**
      *创建用户空间背景图片
      */
@@ -171,6 +171,74 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    CGFloat cacheContentSize = [self folderSizeAtPath:cachePath];
+    
+    NSString *hint = [NSString stringWithFormat:@"缓存大小为%.1fM,确定要清理缓存吗？",cacheContentSize];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:hint preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self clearCache];
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        ;
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+
+
+}
+
+
+#pragma mark - 清除缓存
+- (void)clearCache {
+    
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:cachePath];
+    for (NSString *p in files) {
+        NSError *error;
+        NSString *path = [cachePath stringByAppendingPathComponent:p];
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+            [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+        }
+    }
+}
+
+#pragma mark - 计算缓存文件大小
+/**
+ *  遍历文件夹获得文件夹大小，返回多少M
+ */
+- (float )folderSizeAtPath:(NSString*) folderPath{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if (![manager fileExistsAtPath:folderPath]) return 0;
+    NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath:folderPath] objectEnumerator];
+    NSString* fileName;
+    long long folderSize = 0;
+    while ((fileName = [childFilesEnumerator nextObject]) != nil){
+        NSString* fileAbsolutePath = [folderPath stringByAppendingPathComponent:fileName];
+        folderSize += [self fileSizeAtPath:fileAbsolutePath];
+    }
+    return folderSize/(1024.0*1024.0);
+}
+
+/**
+ *  单个文件的大小
+ *
+ *  @param filePath 文件路径
+ */
+- (long long)fileSizeAtPath:(NSString*) filePath{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if ([manager fileExistsAtPath:filePath]){
+        return [[manager attributesOfItemAtPath:filePath error:nil] fileSize];
+    }
+    return 0;
+}
+
 #pragma mark - UIScrollViewdelegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -188,6 +256,11 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     }
     
     CGFloat alpha = (yOffset + imageBGHeight)/imageBGHeight;
+    if (alpha == 0) {
+        self.navigationController.navigationBar.hidden = YES;
+    }else{
+        self.navigationController.navigationBar.hidden = NO;
+    }
     [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[[UIColor redColor] colorWithAlphaComponent:alpha]] forBarMetrics:UIBarMetricsDefault];
     //self.titleLabel.alpha=alpha;
     alpha=fabs(alpha);
