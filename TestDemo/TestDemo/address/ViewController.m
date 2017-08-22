@@ -21,10 +21,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-//    [self createTableView];
-//    [self.view addSubview:self.tableView];
-    
-
 }
 
 - (void)didReceiveMemoryWarning {

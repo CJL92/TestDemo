@@ -184,15 +184,12 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
         [self clearCache];
     }]];
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        ;
-    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}]];
     
     [self presentViewController:alert animated:YES completion:nil];
 
 
 }
-
 
 #pragma mark - 清除缓存
 - (void)clearCache {
