@@ -77,7 +77,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
 {
     //    if (!_tableView) {
     //        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) style:UITableViewStylePlain];
-    UITableView* tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 20) style:UITableViewStylePlain];
+    UITableView* tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 20) style:UITableViewStyleGrouped];
     self.aTableView=tableView;
     
     
@@ -117,9 +117,6 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     
     [self createTitleLabel];
     
-    //        [self addLoginIconImage];
-    
-    
 }
 #pragma mark -- 标题
 -(void)createTitleLabel
@@ -151,11 +148,23 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 5;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 50;
+    if (section == 1){
+        return 2;
+    }
+    return 1;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.001;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 15;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -165,10 +174,11 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:cellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    cell.textLabel.text = @"打的报销报销开放开发方法";
     
+    cell.textLabel.text = [NSString stringWithFormat:@"test~~~~~%ld",indexPath.section + indexPath.row];
     return cell;
 }
 
@@ -199,7 +209,6 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     for (NSString *p in files) {
         NSError *error;
         NSString *path = [cachePath stringByAppendingPathComponent:p];
-        
         if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
             [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
         }
