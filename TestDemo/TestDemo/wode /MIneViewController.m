@@ -39,7 +39,7 @@
     
     areaString = @"";
     
-    //    self.title = @"添加地址";
+    self.navigationItem.title = @"添加地址";
     
     [self loading];
     

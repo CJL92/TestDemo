@@ -36,6 +36,7 @@
     [self addOneChlildVc:scanView title:@"地址" imageName:@"应用" selectedImageName:@"应用选中"];
 
     UIViewController *scanV2iew = [[UIViewController alloc] init];
+    scanV2iew.view.backgroundColor = [UIColor whiteColor];
     [self addOneChlildVc:scanV2iew title:@"地址" imageName:@"应用" selectedImageName:@"应用选中"];
 
     
@@ -63,13 +64,13 @@
     
     // 设置tabBarItem的普通文字颜色
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-    textAttrs[UITextAttributeTextColor] = [UIColor blackColor];
-    textAttrs[UITextAttributeFont] = [UIFont systemFontOfSize:10];
+    textAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
+    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:10];
     [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     
     // 设置tabBarItem的选中文字颜色
     NSMutableDictionary *selectedTextAttrs = [NSMutableDictionary dictionary];
-    selectedTextAttrs[UITextAttributeTextColor] = [UIColor blackColor];
+    selectedTextAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
     [childVc.tabBarItem setTitleTextAttributes:selectedTextAttrs forState:UIControlStateSelected];
     
     // 设置选中的图标

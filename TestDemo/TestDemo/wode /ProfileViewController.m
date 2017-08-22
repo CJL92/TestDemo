@@ -47,7 +47,6 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     
 //    self.navigationController.navigationBar.hidden = NO;
 
-    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"导航条背景"] forBarMetrics:UIBarMetricsDefault];
     
 }
@@ -76,7 +75,6 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     //        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) style:UITableViewStylePlain];
     UITableView* tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 20) style:UITableViewStyleGrouped];
     self.aTableView=tableView;
-    
     
     self.aTableView.dataSource = self;
     self.aTableView.delegate = self;
@@ -111,23 +109,21 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     self.bgView=bgView;
     [self.aTableView addSubview:self.bgView];
     
-    
-    [self createTitleLabel];
+//    [self createTitleLabel];
     [self createLeftBtn];
     
 }
-#pragma mark -- 标题
--(void)createTitleLabel
-{
-    UILabel* titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 30)];
-    titleLabel.textColor=[UIColor whiteColor];
-    
-    titleLabel.text=@"个人中心";
-    titleLabel.textAlignment=NSTextAlignmentCenter;
-    self.navigationItem.titleView=titleLabel;
-    self.titleLabel=titleLabel;
-    
-}
+//#pragma mark -- 标题
+//-(void)createTitleLabel
+//{
+//    UILabel* titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 30)];
+//    titleLabel.textColor=[UIColor whiteColor];
+//    titleLabel.text=@"个人中心";
+//    titleLabel.textAlignment=NSTextAlignmentCenter;
+//    self.navigationItem.titleView=titleLabel;
+//    self.titleLabel=titleLabel;
+//    
+//}
 
 #pragma mark -- 设置按钮
 -(void)createLeftBtn
@@ -135,13 +131,11 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     UIButton* leftBtn=[[UIButton alloc]initWithFrame:CGRectMake(0,0,40,40)];
     leftBtn.backgroundColor = [UIColor redColor];
     [leftBtn setBackgroundImage:[UIImage imageNamed:@"设置"] forState:UIControlStateNormal];
-    //
     //    [leftBtn addTarget:self action:@selector(leftBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    
     self.settingBtn=leftBtn;
     UIBarButtonItem *leftItem=[[UIBarButtonItem alloc]initWithCustomView:self.settingBtn];
-    
     self.navigationItem.rightBarButtonItem=leftItem;
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

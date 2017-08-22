@@ -37,9 +37,9 @@
     
     // 设置文字属性
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-    textAttrs[UITextAttributeTextColor] = [UIColor blackColor];
+    textAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
     
-    textAttrs[UITextAttributeFont] = [UIFont boldSystemFontOfSize:20];
+    textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:15];
     // UIOffsetZero是结构体, 只要包装成NSValue对象, 才能放进字典\数组中
     textAttrs[UITextAttributeTextShadowOffset] = [NSValue valueWithUIOffset:UIOffsetZero];
     [appearance setTitleTextAttributes:textAttrs];
@@ -50,13 +50,13 @@
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     if (self.viewControllers.count > 0) { // 如果现在push的不是栈底控制器(最先push进来的那个控制器)
+
         viewController.hidesBottomBarWhenPushed = YES;
-            
         UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
         [backBtn setImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
         [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-        
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+        
     }
     [super pushViewController:viewController animated:animated];
 }
