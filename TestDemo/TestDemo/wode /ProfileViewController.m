@@ -7,12 +7,20 @@
 //
 
 #import "ProfileViewController.h"
+#import "OrderMineTableViewCell.h"
+#import "PersonalDataVC.h"
+#import "SettingViewController.h"
 
-static CGFloat const imageBGHeight = 240; // 背景图片的高度
+static CGFloat const imageBGHeight = 200; // 背景图片的高度
 
 
 @interface ProfileViewController ()<UITableViewDelegate, UITableViewDataSource>
-
+{
+    
+    UIImageView *iconimage;//头像
+    UILabel *nameLabel;//名字
+    UILabel *telLabel;//手机号
+}
 @property (nonatomic, strong) UITableView *aTableView;
 
 /**
@@ -24,56 +32,70 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
  */
 @property(nonatomic,weak)UIView* bgView;
 /**
- *中间导航栏的标题
- */
-@property(weak,nonatomic)UILabel* titleLabel;
-
-/**
  * 右边设置的按钮
  */
 @property(nonatomic,weak)UIButton* settingBtn;
+
+@property(nonatomic,strong)NSMutableArray *tableData;
+
 
 @end
 
 @implementation ProfileViewController
 
 
--(void)viewDidDisappear:(BOOL)animated
+-(void)viewWillDisappear:(BOOL)animated
 {
-    [super viewDidDisappear:animated];
+    [super viewWillDisappear:animated];
     
-    self.aTableView = nil;
-    self.view = nil;
-    
-//    self.navigationController.navigationBar.hidden = NO;
+//    self.aTableView = nil;
+//    self.view = nil;
 
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"导航条背景"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.alpha = 1;
+    
+    [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[UIColor blackColor]] forBarMetrics:UIBarMetricsDefault];
     
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //
+    
     self.automaticallyAdjustsScrollViewInsets=NO;
-    
-//    self.navigationController.navigationBar.hidden = YES;
-    
+//    self.navigationController.navigationBar.hidden = NO;
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
     
+    [self setupData];
     
     [self createTableView];
     [self createBgImageView];
+
     
-    //    [self viewDidLayoutSubviews];
+}
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     
 }
 
--(void)createTableView
-{
+-(void)setupData{
+    
+    NSArray *section4 = @[@{@"title":@"我的云币",@"imageNamed":@"密码服务1.4"},@{@"title":@"我的优惠券",@"imageNamed":@"绑定手机1.4"}];
+    NSArray *section2 = @[@{@"title":@"我的拼团",@"imageNamed":@"我的钱包1.4"}];
+    NSArray *section3 = @[@{@"title":@"我的收货地址",@"imageNamed":@"我的视频1.4"}];
+    NSArray *section1 = @[@{@"title":@"邀请店铺",@"imageNamed":@"证书管理1.4"}];
+    
+    _tableData = [NSMutableArray arrayWithObjects:section4 ,section2,section3, section1, nil];
+
+}
+
+-(void)createTableView{
+    
     //    if (!_tableView) {
     //        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) style:UITableViewStylePlain];
-    UITableView* tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 20) style:UITableViewStyleGrouped];
+    UITableView* tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, kDeiveWidth, kDeiveHeight) style:UITableViewStyleGrouped];
     self.aTableView=tableView;
     
     self.aTableView.dataSource = self;
@@ -87,6 +109,7 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     [self createBgImageView];
     //    }
     //    return _tableView;
+    
 }
 
 #pragma mark -- header的大背景
@@ -95,8 +118,9 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     /**
      *创建用户空间背景图片
      */
-    UIImageView *BgImage=[[UIImageView alloc]initWithFrame:CGRectMake(0, -imageBGHeight, self.view.bounds.size.width, imageBGHeight)];
-    BgImage.image=[UIImage imageNamed:@"屏幕快照"];
+    UIImageView *BgImage=[[UIImageView alloc]initWithFrame:CGRectMake(0, -imageBGHeight, kDeiveWidth, imageBGHeight)];
+//    BgImage.image=[UIImage imageNamed:@"屏幕快照"];
+    BgImage.backgroundColor = [UIColor blackColor];
     BgImage.userInteractionEnabled = YES;
     self.BgImage=BgImage;
     [self.aTableView addSubview:self.BgImage];
@@ -105,135 +129,151 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
      *创建用户空间背景图片的容器View
      */
     UIView*  bgView=[[UIView alloc]init];
-    bgView.frame=CGRectMake(0, -imageBGHeight, self.view.bounds.size.width, imageBGHeight);
+    bgView.frame=CGRectMake(0, -imageBGHeight, kDeiveWidth, imageBGHeight);
     self.bgView=bgView;
     [self.aTableView addSubview:self.bgView];
     
-//    [self createTitleLabel];
+    [self createBgUI];
     [self createLeftBtn];
     
 }
-//#pragma mark -- 标题
-//-(void)createTitleLabel
-//{
-//    UILabel* titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 30)];
-//    titleLabel.textColor=[UIColor whiteColor];
-//    titleLabel.text=@"个人中心";
-//    titleLabel.textAlignment=NSTextAlignmentCenter;
-//    self.navigationItem.titleView=titleLabel;
-//    self.titleLabel=titleLabel;
-//    
-//}
 
-#pragma mark -- 设置按钮
+
+- (void)createBgUI{
+
+    iconimage = [[ UIImageView alloc] init];
+    iconimage.frame = CGRectMake(10, 90, 80, 80);
+    iconimage.layer.cornerRadius = 40;
+    iconimage.layer.masksToBounds = YES;
+    iconimage.backgroundColor = [UIColor redColor];
+    [self.bgView addSubview:iconimage];
+    
+    nameLabel = [[UILabel alloc] init];
+    nameLabel.frame = CGRectMake(CGRectGetMaxX(iconimage.frame) + 15, 105, 120, 20);
+    nameLabel.backgroundColor = [UIColor yellowColor];
+    [self.bgView addSubview:nameLabel];
+    
+    telLabel = [[UILabel alloc] init];
+    telLabel.frame = CGRectMake(CGRectGetMaxX(iconimage.frame) + 15, 135, 120, 20);
+    telLabel.backgroundColor = [UIColor blueColor];
+    [self.bgView addSubview:telLabel];
+    
+    UIButton *lookBtn = [[UIButton alloc] initWithFrame:CGRectMake(kDeiveWidth - 80, 90, 80, 80)];
+    UIImage *imgArrow = [UIImage imageNamed:@"返回"];
+    [lookBtn setImage:imgArrow forState:UIControlStateNormal];
+    [lookBtn addTarget:self action:@selector(personClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.bgView addSubview:lookBtn];
+    
+    
+}
+- (void)personClick{
+    
+    PersonalDataVC *vc = [[PersonalDataVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
+#pragma mark -- 导航按钮
 -(void)createLeftBtn
 {
+    self.navigationItem.title = @"";
+    
     UIButton *leftBtn=[[UIButton alloc]initWithFrame:CGRectMake(0,0,40,40)];
-    leftBtn.backgroundColor = [UIColor redColor];
-    [leftBtn setBackgroundImage:[UIImage imageNamed:@"设置"] forState:UIControlStateNormal];
+//    leftBtn.backgroundColor = [UIColor redColor];
+    [leftBtn setImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
     //    [leftBtn addTarget:self action:@selector(leftBtnAction) forControlEvents:UIControlEventTouchUpInside];
     self.settingBtn=leftBtn;
     UIBarButtonItem *leftItem=[[UIBarButtonItem alloc]initWithCustomView:self.settingBtn];
-    self.navigationItem.rightBarButtonItem=leftItem;
+    self.navigationItem.leftBarButtonItem=leftItem;
+    
+    UIButton *rightBtn=[[UIButton alloc]initWithFrame:CGRectMake(0,0,40,40)];
+//    rightBtn.backgroundColor = [UIColor redColor];
+    [rightBtn setImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(rightBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithCustomView:rightBtn];
+    self.navigationItem.rightBarButtonItem=rightItem;
+
+    
+}
+#pragma mark -- 设置
+- (void) rightBtnAction{
+    
+    SettingViewController *vc = [[SettingViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 5;
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return _tableData.count + 1;
 }
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (section == 1){
-        return 2;
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    if (section == 1){
+//        return 2;
+//    }
+//    return 1;
+    if(section == 0){
+        return 1;
+    }else{
+        return [_tableData[section - 1] count];
     }
-    return 1;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.001;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 15;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        return 132;
+    }
+    return 44;
+}
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *cellID = @"jjjj";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:cellID];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1  reuseIdentifier:cellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"test~~~~~%ld",indexPath.section + indexPath.row];
+        if(indexPath.section == 0){
+            
+            NSString *cellID = @"OrderMineTableViewCell";
+            OrderMineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+            if (!cell) {
+                cell = [[OrderMineTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1  reuseIdentifier:cellID];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            [cell.allBtn addTarget:self action:@selector(allOrderClcik) forControlEvents:UIControlEventTouchUpInside];
+            [cell.allBtnImage addTarget:self action:@selector(allOrderClcik) forControlEvents:UIControlEventTouchUpInside];
+            
+            return cell;
+        }else{
+            
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+            NSDictionary *dic = self.tableData[indexPath.section - 1][indexPath.row];
+            
+            cell.imageView.image = [UIImage imageNamed:[dic objectForKey:@"imageNamed"]];
+            cell.textLabel.text = [dic objectForKey:@"title"];
+
+        }
     
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    CGFloat cacheContentSize = [self folderSizeAtPath:cachePath];
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSString *hint = [NSString stringWithFormat:@"缓存大小为%.1fM,确定要清理缓存吗？",cacheContentSize];
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:hint preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self clearCache];
-    }]];
-    
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}]];
-    
-    [self presentViewController:alert animated:YES completion:nil];
+
     
 }
 
-#pragma mark - 清除缓存
-- (void)clearCache {
-    
-    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:cachePath];
-    for (NSString *p in files) {
-        NSError *error;
-        NSString *path = [cachePath stringByAppendingPathComponent:p];
-        if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-            [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
-        }
-    }
-}
+#pragma mark -- 全部订单
+- (void)allOrderClcik{
 
-#pragma mark - 计算缓存文件大小
-/**
- *  遍历文件夹获得文件夹大小，返回多少M
- */
-- (float )folderSizeAtPath:(NSString*) folderPath{
-    NSFileManager* manager = [NSFileManager defaultManager];
-    if (![manager fileExistsAtPath:folderPath]) return 0;
-    NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath:folderPath] objectEnumerator];
-    NSString* fileName;
-    long long folderSize = 0;
-    while ((fileName = [childFilesEnumerator nextObject]) != nil){
-        NSString* fileAbsolutePath = [folderPath stringByAppendingPathComponent:fileName];
-        folderSize += [self fileSizeAtPath:fileAbsolutePath];
-    }
-    return folderSize/(1024.0*1024.0);
-}
-
-/**
- *  单个文件的大小
- *
- *  @param filePath 文件路径
- */
-- (long long)fileSizeAtPath:(NSString*) filePath{
-    NSFileManager* manager = [NSFileManager defaultManager];
-    if ([manager fileExistsAtPath:filePath]){
-        return [[manager attributesOfItemAtPath:filePath error:nil] fileSize];
-    }
-    return 0;
 }
 
 #pragma mark - UIScrollViewdelegate
@@ -255,15 +295,16 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     
     CGFloat alpha = (yOffset + imageBGHeight)/imageBGHeight;
     
-    [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[[UIColor redColor] colorWithAlphaComponent:alpha]] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[[UIColor blackColor] colorWithAlphaComponent:alpha]] forBarMetrics:UIBarMetricsDefault];
     //self.titleLabel.alpha=alpha;
-    alpha=fabs(alpha);
-    alpha=fabs(1-alpha);
-    
-    alpha=alpha<0.2? 0:alpha-0.1;
-    //    self.navigationController.navigationBar.alpha = alpha;
-    self.bgView.alpha=alpha;
+//    alpha=fabs(alpha);
+//    alpha=fabs(1-alpha);
+//    
+//    alpha=alpha<0.2? 0:alpha-0.1;
+//    //    self.navigationController.navigationBar.alpha = alpha;
+//    self.bgView.alpha=alpha;
 }
+ 
 - (UIImage *)imageWithColor:(UIColor *)color
 {
     // 描述矩形
@@ -282,6 +323,16 @@ static CGFloat const imageBGHeight = 240; // 背景图片的高度
     UIGraphicsEndImageContext();
     
     return theImage;
+}
+
+
+#pragma mark -- 懒加载
+- (NSMutableArray *)tableData
+{
+    if (!_tableData) {
+        self.tableData = [NSMutableArray array];
+    }
+    return _tableData;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

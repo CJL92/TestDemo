@@ -60,7 +60,7 @@
         [self prepareData];
         dispatch_queue_t mainQueue = dispatch_get_main_queue();
         dispatch_async(mainQueue, ^{
-            [self uiConfig];
+//            [self uiConfig];
         });
         
     });
@@ -207,7 +207,15 @@
     NSArray *arr = _areaDic[str];
     AreaModel *areaModel = [[AreaModel alloc]init];
     [areaModel setValuesForKeysWithDictionary:arr[selectThree]];
-    areaString = [NSString stringWithFormat:@"%@  %@  %@",model.name,cityModel.name,areaModel.name];
+//    areaString = [NSString stringWithFormat:@"%@  %@  %@",model.name,cityModel.name,areaModel.name];
+    
+    if ([model.name isEqualToString:cityModel.name]) {
+        areaString = [NSString stringWithFormat:@"%@  %@",cityModel.name,areaModel.name];
+    }else{
+        areaString = [NSString stringWithFormat:@"%@  %@  %@",model.name,cityModel.name,areaModel.name];
+    }
+
+    
     //    NSLog(@"省:%@ 市:%@ 区:%@",model.name,cityModel.name,areaModel.name);
     
     
