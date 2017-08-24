@@ -18,7 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    
+    self.navigationBar.barStyle = UIBarStyleBlack;
+
 }
 
 + (void)initialize

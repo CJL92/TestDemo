@@ -29,6 +29,11 @@
 		5B29C69C1F4BD9F800B2F4F0 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B29C69B1F4BD9F800B2F4F0 /* ProfileViewController.m */; };
 		5B63E9571F4E67100026ACD2 /* PersonalDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63E9561F4E67100026ACD2 /* PersonalDataVC.m */; };
 		5B63E95A1F4E7F890026ACD2 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63E9591F4E7F890026ACD2 /* SettingViewController.m */; };
+		5B63E95E1F4EA1C80026ACD2 /* AllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63E95D1F4EA1C80026ACD2 /* AllViewController.m */; };
+		5B63E9681F4EA5C50026ACD2 /* SCNavTabBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B63E9611F4EA5C50026ACD2 /* SCNavTabBar.bundle */; };
+		5B63E9691F4EA5C50026ACD2 /* SCNavTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63E9631F4EA5C50026ACD2 /* SCNavTabBar.m */; };
+		5B63E96A1F4EA5C50026ACD2 /* SCNavTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63E9651F4EA5C50026ACD2 /* SCNavTabBarController.m */; };
+		5B63E96B1F4EA5C50026ACD2 /* SCPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63E9671F4EA5C50026ACD2 /* SCPopView.m */; };
 		5B69124F1F4D3382009FC56F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B6912351F4D3382009FC56F /* Info.plist */; };
 		5B6912501F4D3382009FC56F /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6912371F4D3382009FC56F /* MASCompositeConstraint.m */; };
 		5B6912511F4D3382009FC56F /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B69123A1F4D3382009FC56F /* MASConstraint.m */; };
@@ -104,6 +109,16 @@
 		5B63E9561F4E67100026ACD2 /* PersonalDataVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalDataVC.m; sourceTree = "<group>"; };
 		5B63E9581F4E7F890026ACD2 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		5B63E9591F4E7F890026ACD2 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		5B63E95C1F4EA1C80026ACD2 /* AllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllViewController.h; sourceTree = "<group>"; };
+		5B63E95D1F4EA1C80026ACD2 /* AllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllViewController.m; sourceTree = "<group>"; };
+		5B63E9601F4EA5C50026ACD2 /* CommonMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMacro.h; sourceTree = "<group>"; };
+		5B63E9611F4EA5C50026ACD2 /* SCNavTabBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SCNavTabBar.bundle; sourceTree = "<group>"; };
+		5B63E9621F4EA5C50026ACD2 /* SCNavTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNavTabBar.h; sourceTree = "<group>"; };
+		5B63E9631F4EA5C50026ACD2 /* SCNavTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNavTabBar.m; sourceTree = "<group>"; };
+		5B63E9641F4EA5C50026ACD2 /* SCNavTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNavTabBarController.h; sourceTree = "<group>"; };
+		5B63E9651F4EA5C50026ACD2 /* SCNavTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNavTabBarController.m; sourceTree = "<group>"; };
+		5B63E9661F4EA5C50026ACD2 /* SCPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPopView.h; sourceTree = "<group>"; };
+		5B63E9671F4EA5C50026ACD2 /* SCPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPopView.m; sourceTree = "<group>"; };
 		5B6912301F4D2AEE009FC56F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		5B6912351F4D3382009FC56F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B6912361F4D3382009FC56F /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -266,6 +281,7 @@
 				5B63E9561F4E67100026ACD2 /* PersonalDataVC.m */,
 				5B63E9581F4E7F890026ACD2 /* SettingViewController.h */,
 				5B63E9591F4E7F890026ACD2 /* SettingViewController.m */,
+				5B63E95B1F4EA1B20026ACD2 /* order */,
 			);
 			path = "wode ";
 			sourceTree = "<group>";
@@ -279,6 +295,31 @@
 				5B29C6971F4BCE9D00B2F4F0 /* TabBarViewController.m */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		5B63E95B1F4EA1B20026ACD2 /* order */ = {
+			isa = PBXGroup;
+			children = (
+				5B63E95F1F4EA5C50026ACD2 /* SCNavTabBarController */,
+				5B63E95C1F4EA1C80026ACD2 /* AllViewController.h */,
+				5B63E95D1F4EA1C80026ACD2 /* AllViewController.m */,
+			);
+			path = order;
+			sourceTree = "<group>";
+		};
+		5B63E95F1F4EA5C50026ACD2 /* SCNavTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				5B63E9601F4EA5C50026ACD2 /* CommonMacro.h */,
+				5B63E9611F4EA5C50026ACD2 /* SCNavTabBar.bundle */,
+				5B63E9621F4EA5C50026ACD2 /* SCNavTabBar.h */,
+				5B63E9631F4EA5C50026ACD2 /* SCNavTabBar.m */,
+				5B63E9641F4EA5C50026ACD2 /* SCNavTabBarController.h */,
+				5B63E9651F4EA5C50026ACD2 /* SCNavTabBarController.m */,
+				5B63E9661F4EA5C50026ACD2 /* SCPopView.h */,
+				5B63E9671F4EA5C50026ACD2 /* SCPopView.m */,
+			);
+			path = SCNavTabBarController;
 			sourceTree = "<group>";
 		};
 		5B6912341F4D3382009FC56F /* Masonry */ = {
@@ -428,6 +469,7 @@
 				5B22107C1F4A76BF00E0F227 /* Assets.xcassets in Resources */,
 				5B29C68F1F4BCD6500B2F4F0 /* 屏幕快照.png in Resources */,
 				5B22107A1F4A76BF00E0F227 /* Main.storyboard in Resources */,
+				5B63E9681F4EA5C50026ACD2 /* SCNavTabBar.bundle in Resources */,
 				5B69124F1F4D3382009FC56F /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +499,7 @@
 				5B6912561F4D3382009FC56F /* NSArray+MASAdditions.m in Sources */,
 				5B2210CA1F4AD0C900E0F227 /* AddressTableViewCell.m in Sources */,
 				5B6912571F4D3382009FC56F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				5B63E95E1F4EA1C80026ACD2 /* AllViewController.m in Sources */,
 				5B2210D11F4AD0C900E0F227 /* ViewController.m in Sources */,
 				5B2210741F4A76BF00E0F227 /* AppDelegate.m in Sources */,
 				5B6912541F4D3382009FC56F /* MASViewAttribute.m in Sources */,
@@ -464,9 +507,12 @@
 				5B6912501F4D3382009FC56F /* MASCompositeConstraint.m in Sources */,
 				5B2210711F4A76BF00E0F227 /* main.m in Sources */,
 				5B63E9571F4E67100026ACD2 /* PersonalDataVC.m in Sources */,
+				5B63E96B1F4EA5C50026ACD2 /* SCPopView.m in Sources */,
 				5B29C68B1F4BBEDE00B2F4F0 /* MIneViewController.m in Sources */,
+				5B63E96A1F4EA5C50026ACD2 /* SCNavTabBarController.m in Sources */,
 				5B69125F1F4D33C9009FC56F /* OrderMineTableViewCell.m in Sources */,
 				5B6912551F4D3382009FC56F /* MASViewConstraint.m in Sources */,
+				5B63E9691F4EA5C50026ACD2 /* SCNavTabBar.m in Sources */,
 				5B2210D01F4AD0C900E0F227 /* ProvinceModel.m in Sources */,
 				5B63E95A1F4E7F890026ACD2 /* SettingViewController.m in Sources */,
 				5B29C6991F4BCE9D00B2F4F0 /* TabBarViewController.m in Sources */,

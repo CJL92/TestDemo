@@ -11,6 +11,8 @@
 #import "ProfileViewController.h"
 #import "MIneViewController.h"
 
+
+
 @interface TabBarViewController ()
 
 @end
@@ -32,7 +34,8 @@
 - (void)addAllChildVcs
 {
     
-    MIneViewController *scanView = [[MIneViewController alloc] init];
+    UIViewController *scanView = [[UIViewController alloc] init];
+    scanView.view.backgroundColor = [UIColor whiteColor];
     [self addOneChlildVc:scanView title:@"地址" imageName:@"应用" selectedImageName:@"应用选中"];
 
     UIViewController *scanV2iew = [[UIViewController alloc] init];

@@ -10,6 +10,10 @@
 #import "OrderMineTableViewCell.h"
 #import "PersonalDataVC.h"
 #import "SettingViewController.h"
+#import "AllViewController.h"
+#import "MIneViewController.h"
+
+
 
 static CGFloat const imageBGHeight = 200; // 背景图片的高度
 
@@ -249,6 +253,10 @@ static CGFloat const imageBGHeight = 200; // 背景图片的高度
             }
             [cell.allBtn addTarget:self action:@selector(allOrderClcik) forControlEvents:UIControlEventTouchUpInside];
             [cell.allBtnImage addTarget:self action:@selector(allOrderClcik) forControlEvents:UIControlEventTouchUpInside];
+            [cell.paymentBtn addTarget:self action:@selector(paymentBtnClick) forControlEvents:UIControlEventTouchUpInside];
+            [cell.sendBtn addTarget:self action:@selector(sendBtnClick) forControlEvents:UIControlEventTouchUpInside];
+            [cell.shippedBtn addTarget:self action:@selector(shippedBtnClick) forControlEvents:UIControlEventTouchUpInside];
+            [cell.afterBtn addTarget:self action:@selector(afterBtnClick) forControlEvents:UIControlEventTouchUpInside];
             
             return cell;
         }else{
@@ -267,13 +275,41 @@ static CGFloat const imageBGHeight = 200; // 背景图片的高度
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (indexPath.section == 3) {
+        MIneViewController *vc = [[MIneViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 
-    
 }
 
 #pragma mark -- 全部订单
 - (void)allOrderClcik{
-
+    AllViewController *vc = [[AllViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+#pragma mark -- 待付款
+- (void) paymentBtnClick{
+    AllViewController *vc = [[AllViewController alloc] init];
+    vc.judeString = @"1";
+    [self.navigationController pushViewController:vc animated:YES];
+}
+#pragma mark -- 待发货
+- (void) sendBtnClick{
+    AllViewController *vc = [[AllViewController alloc] init];
+    vc.judeString = @"2";
+    [self.navigationController pushViewController:vc animated:YES];
+}
+#pragma mark -- 已发货
+- (void) shippedBtnClick{
+    AllViewController *vc = [[AllViewController alloc] init];
+    vc.judeString = @"3";
+    [self.navigationController pushViewController:vc animated:YES];
+}
+#pragma  mark -- 售后
+- (void) afterBtnClick{
+    
+    
 }
 
 #pragma mark - UIScrollViewdelegate

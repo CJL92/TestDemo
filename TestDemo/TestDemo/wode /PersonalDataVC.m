@@ -10,7 +10,7 @@
 #import "AreaModel.h"
 #import "CityModel.h"
 #import "ProvinceModel.h"
-
+#import "MIneViewController.h"
 
 @interface PersonalDataVC ()<UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate,UIPickerViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIActionSheetDelegate>
 {
@@ -160,6 +160,10 @@
             [self uiConfig];
             
         }
+    }else{
+    
+        MIneViewController *vc = [[MIneViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     
 }
