@@ -52,9 +52,6 @@ static CGFloat const imageBGHeight = 200; // 背景图片的高度
 {
     [super viewWillDisappear:animated];
     
-//    self.aTableView = nil;
-//    self.view = nil;
-
     self.navigationController.navigationBar.alpha = 1;
     
     [self.navigationController.navigationBar setBackgroundImage:[self imageWithColor:[UIColor blackColor]] forBarMetrics:UIBarMetricsDefault];

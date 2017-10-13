@@ -50,16 +50,17 @@
     
     
     if ([self.judeString isEqualToString:@"1"]) {
+        
         navTabBarController.navTabBar.currentItemIndex = 1;
-        
         [navTabBarController.mainView setContentOffset:CGPointMake(kDeiveWidth * 1, 0)];
-    }else if ([self.judeString isEqualToString:@"2"]){
-        navTabBarController.navTabBar.currentItemIndex = 2;
         
+    }else if ([self.judeString isEqualToString:@"2"]){
+        
+        navTabBarController.navTabBar.currentItemIndex = 2;
         [navTabBarController.mainView setContentOffset:CGPointMake(kDeiveWidth * 2, 0)];
     }else if ([self.judeString isEqualToString:@"3"]){
-        navTabBarController.navTabBar.currentItemIndex = 3;
         
+        navTabBarController.navTabBar.currentItemIndex = 3;
         [navTabBarController.mainView setContentOffset:CGPointMake(kDeiveWidth * 3, 0)];
     }
     
